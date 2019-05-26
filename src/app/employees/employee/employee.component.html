@@ -1,0 +1,34 @@
+<!--register form-->
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
+  <div class="form-group">
+    <label>FULL NAME</label>
+    <input name="FullName" #FullName="ngModel" [(ngModel)]="service.formData.FullName" class="form-control" required>
+    <!--Test if field is mandatory-->
+    <div class="validation-error" *ngIf="FullName.invalid && FullName.touched" >This field is required.</div>
+  </div>
+  <div class="form-group">
+    <label>POSITION</label>
+    <input name="Position" #Position="ngModel" [(ngModel)]="service.formData.Position" class="form-control" required>
+    <div class="validation-error" *ngIf="Position.invalid && Position.touched" >This field is required.</div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>EMP CODE</label>
+      <input name="EMPCode" #EMPCode="ngModel" [(ngModel)]="service.formData.EMPCode" class="form-control" required>
+      <div class="validation-error" *ngIf="EMPCode.invalid && EMPCode.touched" >This field is required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <label>MOBILE</label>
+      <input name="Mobile" #Mobile="ngModel" [(ngModel)]="service.formData.Mobile" class="form-control" required>
+      <div class="validation-error" *ngIf="Mobile.invalid && Mobile.touched" >This field is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>PHOTO</label>
+    <input type="file" class="form-control" accept="image/png" (change)="onSelectedFile($event)">
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
+</form>

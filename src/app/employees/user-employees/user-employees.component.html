@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1 class="display-4 text-center">Employees Search</h1>
+  <hr>
+  <h2 *ngIf="service.list?.length == 0" class="text-center">No Data Found</h2>
+  <input type="text" placeholder="Search" [(ngModel)]="term" class="form-control">
+  <table *ngIf="service.list?.length > 0" class="table table-hover">
+    <th>Employee code</th>
+    <th>Position</th>
+    <th>Mobile</th>
+    <th>Details</th>
+    <tr *ngFor="let emp of service.list | filter: term | paginate: { itemsPerPage : 3, currentPage: p }">
+      <td>{{emp.EMPCode}}</td>
+      <td>{{emp.Position}}</td>
+      <td>{{emp.Mobile}}</td>
+
+
+      <td><a [routerLink]="['/details', emp.EmployeeID]" ><i class="fas fa-info-circle"></i></a></td>
+    </tr>
+    <tr>
+      <p><pagination-controls (pageChange)="p = $event"></pagination-controls></p>
+    </tr>
+  </table>
+
+
+
+
+</div>
