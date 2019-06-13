@@ -3,17 +3,17 @@
   <!--General label-->
   <h1 class="display-4 text-center">User login</h1>
   <hr>
-  <form #form="ngForm" autocomplete="off">
+  <form #form="ngForm" autocomplete="off" (submit)="onSignIn(form)">
     <div class="form-group">
-      <label>USERNAME</label>
-      <input name="UserName" #UserName="ngModel" [(ngModel)]="userData.UserName" class="form-control" required>
+      <label>username</label>
+      <input name="username" #username="ngModel" [(ngModel)]="user.username" class="form-control" required>
       <!--Test if field is mandatory-->
-      <div class="validation-error" *ngIf="UserName.invalid && UserName.touched">This field is required.</div>
+      <!--<div class="validation-error" *ngIf="username.invalid && username.touched">This field is required.</div>-->
     </div>
     <div class="form-group">
-      <label>PASSWORD</label>
-      <input name="Password" #Position="ngModel" [(ngModel)]="userData.Password" class="form-control" required>
-      <div class="validation-error" *ngIf="Password.invalid && Password.touched">This field is required.</div>
+      <label>password</label>
+      <input type="password" name="password" #Position="ngModel" [(ngModel)]="user.password" class="form-control" required>
+      <!--<div class="validation-error" *ngIf="password.invalid && password.touched">This field is required.</div>-->
     </div>
     <div class="form-group">
       <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>

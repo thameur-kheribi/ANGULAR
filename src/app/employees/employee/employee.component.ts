@@ -26,7 +26,8 @@ export class EmployeeComponent implements OnInit {
         FullName: '',
         Position: '',
         EMPCode: '',
-        Mobile: ''
+        Mobile: '',
+        FileName: ''
       }
   }
 

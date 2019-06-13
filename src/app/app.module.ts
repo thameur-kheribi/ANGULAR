@@ -17,6 +17,8 @@ import { UserEmployeesComponent } from './employees/user-employees/user-employee
 import { EmployeeDetailsComponent } from './employees/employee-details/employee-details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AuthService } from "src/app/shared/auth.service";
+import { TestComponent } from './auth/test/test.component';
 
 const appRoutes : Routes = [
 
@@ -25,6 +27,7 @@ const appRoutes : Routes = [
   { path : '', redirectTo: '/register', pathMatch: 'full'},
   { path: 'search', component: UserEmployeesComponent},
   { path: 'details/:EmployeeID', component: EmployeeDetailsComponent },
+  { path: 'test', component: TestComponent },
   { path: '**', component: NotFound404Component }
   
 ];
@@ -38,7 +41,8 @@ const appRoutes : Routes = [
     LoginComponent,
     NotFound404Component,
     UserEmployeesComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    TestComponent
 
   ],
   imports: [
@@ -51,7 +55,7 @@ const appRoutes : Routes = [
     NgxPaginationModule,
     Ng2SearchPipeModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

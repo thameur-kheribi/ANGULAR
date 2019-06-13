@@ -10,7 +10,7 @@ export class EmployeeService {
 
   formData: Employee
   list: Employee[]
-  readonly rootURL = "http://192.168.1.9:9002/"
+  readonly rootURL = "http://192.168.1.7:9002/"
   constructor(private httpClient: HttpClient) {
   }
   refreshList() {
